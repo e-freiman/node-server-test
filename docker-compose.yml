@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  node-service-test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - ./src:/home/node/app/src
+    container_name: node-service-test-docker
+    expose:
+      - '7000'
+    ports:
+      - '7000:7000'
+    command: npm run dev
